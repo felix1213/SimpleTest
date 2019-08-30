@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MVC快速开发平台</title>
+    <link href="~/Content/css/framework-font.css" rel="stylesheet" />
+    <link href="~/Content/css/framework-login.css" rel="stylesheet" />
+    <script src="~/Content/js/jquery/jquery-2.1.1.min.js"></script>
+    <script src="~/Content/js/cookie/jquery.cookie.js"></script>
+    <script src="~/Content/js/md5/jquery.md5.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="logo">
+                <i class="fa fa-modx"></i>
+                <h1><span>MVC</span>快速开发平台</h1>
+            </div>
+            <form class="form">
+                <div class="row">
+                    <input id="txt_account" type="text" placeholder="用户名/手机号/邮箱">
+                    <i class="fa fa-user"></i>
+                </div>
+                <div class="row">
+                    <input id="txt_password" type="password" placeholder="登录密码">
+                    <i class="fa fa-key"></i>
+                </div>
+                <div class="row">
+                    <input id="txt_code" maxlength="4" type="text" placeholder="验证码" style="width: 190px; float: left;">
+                    <div style="width: 110px; float: right; padding-top: 14px; padding-left: 14px;">
+                        看不清？<a id="switchCode" href="javascript:void();" style="text-decoration: none;">换一张</a>
+                        <img id="imgcode" class="authcode" src="~/Login/GetAuthCode" width="80" height="25" />
+                    </div>
+                </div>
+                <div class="row">
+                    <button id="login_button" type="button"><span>登录</span></button>
+                </div>
+                <div class="row">
+                </div>
+            </form>
+            <div class="login_tips"></div>
+        </div>
+        <ul class="bg-bubbles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <div class="copyright">
+
+        <br>
+        适用浏览器：IE8以上、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗.
+    </div>
+    <script src="~/Scripts/login@index.js"></script>
+</body>
+</html>

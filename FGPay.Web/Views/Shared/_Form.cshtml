@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+@{
+    string fileName = ((Microsoft.AspNetCore.Http.Internal.DefaultHttpRequest)ViewContext.HttpContext.Request).Path.Value.Substring(1).Replace('/', '@');
+}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/css/framework-font.css" rel="stylesheet" />
+    <link href="~/Content/css/framework-theme.css" rel="stylesheet" />
+    <link href="~/Content/css/framework-ui.css" rel="stylesheet" />
+    <link href="~/Content/js/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    @*引入当页样式*@
+    @RenderSection("css", required: false)
+</head>
+<body>
+
+    @RenderBody()
+    @*@Scripts.Render("~/bundles/js_form", Url.Content("~/Scripts/Comm.js"), Url.Content(string.Format("~/Scripts/{0}.js", fileName)))*@
+    @*引入当页脚本*@
+    @RenderSection("scripts", required: false)
+</body>
+</html>

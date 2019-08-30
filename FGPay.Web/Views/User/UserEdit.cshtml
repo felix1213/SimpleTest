@@ -1,0 +1,82 @@
+﻿@model FGPay.Web.Models.UserEntity
+@{
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/_Form.cshtml";
+}
+<form id="UserEidt">
+    <div style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#">基本信息</a></li>
+            <input id="hidID" type="hidden" value="@Model.ID" />
+            @*<li ><a href="#">扩展信息</a></li>*@
+        </ul>
+        <div style="padding-top: 20px; margin-right: 30px;">
+            <table class="form">
+                <tr>
+                    <th class="formTitle">账户</th>
+                    <td class="formValue">
+                        <input id="txtAccountName" name="txtAccountName" type="text" class="form-control required" placeholder="请输入账户" value="@Model.AccountName" />
+                    </td>
+                    <th class="formTitle">密码</th>
+                    <td class="formValue">
+                        <input id="txtPassword" type="password" name="txtPassword" class="form-control required" placeholder="请输入密码" value="@Model.Password" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle">姓名</th>
+                    <td class="formValue">
+                        <input id="txtRealName" name="txtRealName" autocomplete="off" type="text" class="form-control required" placeholder="请输入姓名" value="@Model.RealName" />
+                    </td>
+                    <th class="formTitle">部门</th>
+                    <td class="formValue">
+                        <select id="sltDepartmentId" name="sltDepartmentId" class="form-control required" value="@Model.DepartmentId"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle">角色</th>
+                    <td class="formValue">
+                        <select id="sltRoleId" name="sltRoleId" class="form-control required" value="@Model.RoleId"></select>
+                    </td>
+                    <th class="formTitle">允许登录</th>
+                    <td class="formValue">
+                        <select id="sltIsAble" class="form-control" value="@Model.IsAble">
+                            <option value="true">是</option>
+                            <option value="false">否</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle">手机</th>
+                    <td class="formValue">
+                        <input id="txtMobilePhone" type="text" name="txtMobilePhone" class="form-control required isMobile" value="@Model.MobilePhone" />
+                    </td>
+                    <th class="formTitle">生日</th>
+                    <td class="formValue">
+                        <input id="txtBirthday" type="text" class="form-control input-wdatepicker" autocomplete="off" onfocus="WdatePicker()" data-value="@Model.Birthday" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle">邮箱</th>
+                    <td class="formValue">
+                        <input id="txtEmail" name="txtEmail" type="email" class="form-control required email" autocomplete="off" value="@Model.Email" />
+                    </td>
+                    <th class="formTitle">入职日期</th>
+                    <td class="formValue">
+                        <input id="txtEntrydate" type="text" class="form-control input-wdatepicker" autocomplete="off" onfocus="WdatePicker()" data-value="@Model.Entrydate" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle" valign="top" style="padding-top: 5px;">
+                        备注
+                    </th>
+                    <td class="formValue" colspan="3">
+                        <textarea id="texDescription" name="texDescription" class="form-control" style="height: 60px;">@Model.Description</textarea>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</form>
+@section scripts {
+    <script src="~/Content/js/datepicker/WdatePicker.js"></script>
+}

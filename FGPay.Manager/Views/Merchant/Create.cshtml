@@ -1,0 +1,98 @@
+﻿@model FGPay.Manager.Models.Merchant
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Merchant</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PassWord" class="control-label"></label>
+                <input asp-for="PassWord" class="form-control" />
+                <span asp-validation-for="PassWord" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MerchantFullName" class="control-label"></label>
+                <input asp-for="MerchantFullName" class="form-control" />
+                <span asp-validation-for="MerchantFullName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MerchantState" class="control-label"></label>
+                <input asp-for="MerchantState" class="form-control" />
+                <span asp-validation-for="MerchantState" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SettleType" class="control-label"></label>
+                <input asp-for="SettleType" class="form-control" />
+                <span asp-validation-for="SettleType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Role" class="control-label"></label>
+                <input asp-for="Role" class="form-control" />
+                <span asp-validation-for="Role" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PrepaidRate" class="control-label"></label>
+                <input asp-for="PrepaidRate" class="form-control" />
+                <span asp-validation-for="PrepaidRate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WithdrawalRate" class="control-label"></label>
+                <input asp-for="WithdrawalRate" class="form-control" />
+                <span asp-validation-for="WithdrawalRate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Balance" class="control-label"></label>
+                <input asp-for="Balance" class="form-control" />
+                <span asp-validation-for="Balance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Md5key" class="control-label"></label>
+                <input asp-for="Md5key" class="form-control" />
+                <span asp-validation-for="Md5key" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Remark" class="control-label"></label>
+                <input asp-for="Remark" class="form-control" />
+                <span asp-validation-for="Remark" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Operator" class="control-label"></label>
+                <input asp-for="Operator" class="form-control" />
+                <span asp-validation-for="Operator" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AgentID" class="control-label"></label>
+                <input asp-for="AgentID" class="form-control" />
+                <span asp-validation-for="AgentID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

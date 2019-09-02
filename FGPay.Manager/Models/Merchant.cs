@@ -16,7 +16,7 @@ namespace FGPay.Manager.Models
         [Required]
         [Display(Name = "商户名")]
         [StringLength(20, MinimumLength = 3)]
-        public string UserName { get; set; }
+        public string MerchantUserID { get; set; }
         [Required]
         [Display(Name = "密码")]
         [StringLength(50)]
@@ -52,11 +52,12 @@ namespace FGPay.Manager.Models
         public int Role { get; set; } = 1;
 
         [Display(Name = "预付费率")]
-        [Column(TypeName = "numeric(5, 2)")]
-        public decimal PrepaidRate { get; set; }
+        [Column(TypeName = "numeric(4, 2)")]
+        public Double PrepaidRate { get; set; }
+
         [Display(Name = "取现费率")]
-        [Column(TypeName = "numeric(5, 2)")]
-        public decimal WithdrawalRate { get; set; }
+        [Column(TypeName = "numeric(4, 2)")]
+        public Double WithdrawalRate { get; set; }
 
         [Display(Name = "账户余额")]
         [Column(TypeName = "money")]
@@ -68,14 +69,29 @@ namespace FGPay.Manager.Models
 
         [Display(Name = "备注")]
         [StringLength(100)]
-        public string Remark { get; set; }
+        public string Remark { get; set; } = "";
 
         [Display(Name = "操作员")]
         [StringLength(50)]
         public string Operator { get; set; }
 
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd HH:mm:ss}", ApplyFormatInEditMode = true)]
+        [Display(Name = "创建时间")]
+        public DateTime CreateTime { get; set; }
+
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd HH:mm:ss}", ApplyFormatInEditMode = true)]
+        [Display(Name = "修改时间")]
+        public DateTime LastUpdateTime { get; set; }
+
         [Display(Name = "代理")]
         public int? AgentID { get; set; }
+        /// <summary>
+        /// 代理，导航属性
+        /// </summary>
+        public Agent MerchantAgent { get; set; }
+
 
     }
 }

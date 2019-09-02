@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using FGPay.Manager.Models;
+using FGPay.Manager.Models.VewModel;
 
 namespace FGPay.Manager.Controllers
 {

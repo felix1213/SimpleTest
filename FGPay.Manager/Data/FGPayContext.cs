@@ -16,5 +16,26 @@ namespace FGPay.Manager {
         /// 商户
         /// </summary>
         public DbSet<Merchant> Merchants { get; set; }
+        /// <summary>
+        /// 代理
+        /// </summary>
+        public DbSet<Agent> Agents { get; set; }
+        /// <summary>
+        /// 费率设置
+        /// </summary>
+        public DbSet<MerchantRate> MerchantRates { get; set; }
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Merchant>().ToTable("Merchant");
+
+            //不启用MerchantRate表对Merchant的级联删除
+            modelBuilder.Entity<MerchantRate>()
+               .HasOne(d => d.Merchant)
+               .WithMany()
+               .OnDelete(DeleteBehavior.Restrict);
+        }
+
     }
 }

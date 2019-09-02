@@ -1,6 +1,6 @@
 using System;
 
-namespace FGPay.Manager.Models
+namespace FGPay.Manager.Models.VewModel
 {
     public class ErrorViewModel
     {

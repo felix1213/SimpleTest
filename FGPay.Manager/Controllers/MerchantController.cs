@@ -22,7 +22,8 @@ namespace FGPay.Manager.Controllers
         // GET: Merchant
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Merchants.ToListAsync());
+            var fGPayContext = _context.Merchants.Include(m => m.MerchantAgent);
+            return View(await fGPayContext.ToListAsync());
         }
 
         // GET: Merchant/Details/5
@@ -34,6 +35,7 @@ namespace FGPay.Manager.Controllers
             }
 
             var merchant = await _context.Merchants
+                .Include(m => m.MerchantAgent)
                 .FirstOrDefaultAsync(m => m.MerchantID == id);
             if (merchant == null)
             {
@@ -46,6 +48,7 @@ namespace FGPay.Manager.Controllers
         // GET: Merchant/Create
         public IActionResult Create()
         {
+            ViewData["AgentID"] = new SelectList(_context.Agents, "AgentID", "AgentID");
             return View();
         }
 
@@ -54,7 +57,7 @@ namespace FGPay.Manager.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MerchantID,UserName,PassWord,MerchantFullName,PhoneNumber,MerchantState,SettleType,Role,PrepaidRate,WithdrawalRate,Balance,Md5key,Remark,Operator,AgentID")] Merchant merchant)
+        public async Task<IActionResult> Create([Bind("MerchantID,MerchantUserID,PassWord,MerchantFullName,PhoneNumber,MerchantState,SettleType,Role,PrepaidRate,WithdrawalRate,Balance,Md5key,Remark,Operator,CreateTime,LastUpdateTime,AgentID")] Merchant merchant)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +65,7 @@ namespace FGPay.Manager.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["AgentID"] = new SelectList(_context.Agents, "AgentID", "AgentID", merchant.AgentID);
             return View(merchant);
         }
 
@@ -78,6 +82,7 @@ namespace FGPay.Manager.Controllers
             {
                 return NotFound();
             }
+            ViewData["AgentID"] = new SelectList(_context.Agents, "AgentID", "AgentID", merchant.AgentID);
             return View(merchant);
         }
 
@@ -86,7 +91,7 @@ namespace FGPay.Manager.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("MerchantID,UserName,PassWord,MerchantFullName,PhoneNumber,MerchantState,SettleType,Role,PrepaidRate,WithdrawalRate,Balance,Md5key,Remark,Operator,AgentID")] Merchant merchant)
+        public async Task<IActionResult> Edit(int id, [Bind("MerchantID,MerchantUserID,PassWord,MerchantFullName,PhoneNumber,MerchantState,SettleType,Role,PrepaidRate,WithdrawalRate,Balance,Md5key,Remark,Operator,CreateTime,LastUpdateTime,AgentID")] Merchant merchant)
         {
             if (id != merchant.MerchantID)
             {
@@ -113,6 +118,7 @@ namespace FGPay.Manager.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["AgentID"] = new SelectList(_context.Agents, "AgentID", "AgentID", merchant.AgentID);
             return View(merchant);
         }
 
@@ -125,6 +131,7 @@ namespace FGPay.Manager.Controllers
             }
 
             var merchant = await _context.Merchants
+                .Include(m => m.MerchantAgent)
                 .FirstOrDefaultAsync(m => m.MerchantID == id);
             if (merchant == null)
             {

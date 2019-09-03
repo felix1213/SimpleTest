@@ -11,6 +11,7 @@ namespace FGPay.Web.Controllers
 {
     public class BaseController : Controller
     {
+
         protected void SetSession(string k, string v)
         {
             HttpContext.Session.SetString(k, v);

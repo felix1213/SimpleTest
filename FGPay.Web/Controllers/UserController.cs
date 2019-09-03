@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using FGPay.Web.Domain;
 using FGPay.Web.Models;
 using FGPay.Code;
+using FGPay.Domain.Entity;
 
 namespace FGPay.Web.Controllers
 {

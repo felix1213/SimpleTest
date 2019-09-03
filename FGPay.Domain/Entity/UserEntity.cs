@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace FGPay.Web.Models
+namespace FGPay.Domain.Entity
 {
+    /// <summary>
+    /// 用户类
+    /// </summary>
     public class UserEntity
     {
         /// <summary>

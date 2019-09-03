@@ -28,7 +28,7 @@
                     type: "post",
                     dataType: "json",
                     success: function (data) {
-                        if (data.state == 1) {
+                        if (data.state == "success") {
                             $("#login_button").find('span').html("登录成功，正在跳转...");
                             window.setTimeout(function () {
                                 window.location.href = "/Home/Index";

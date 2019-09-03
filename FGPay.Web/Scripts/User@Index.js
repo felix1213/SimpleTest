@@ -49,7 +49,7 @@ function gridList() {
 function btn_add() {
     $.modalOpen({
         id: "UserEdit",
-        title: GlobalResx.add,
+        title: "新增",
         url: "/User/UserEdit",
         width: "700px",
         height: "510px",

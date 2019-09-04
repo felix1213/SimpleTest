@@ -35,25 +35,12 @@ namespace FGPay.Domain.Entity
         /// </summary>
         public int RoleId { get; set; }
 
-        /// <summary>
-        /// 部门编号
-        /// </summary>
-        public int DepartmentId { get; set; }
-
-        /// <summary>
-        /// 职务编号
-        /// </summary>
-        public int DutyId { get; set; }
 
         /// <summary>
         /// 生日
         /// </summary>
         public DateTime? Birthday { get; set; }
 
-        /// <summary>
-        /// 入职日期
-        /// </summary>
-        public DateTime? Entrydate { get; set; }
 
         /// <summary>
         /// 联系人手机号码 
@@ -79,26 +66,5 @@ namespace FGPay.Domain.Entity
         /// 用户简介
         /// </summary>
         public string Description { get; set; }
-
-        /// <summary>
-        /// 创建人
-        /// </summary>
-        public string CreateBy { get; set; }
-        /// <summary>
-        /// 创建时间 
-        /// </summary>
-        public DateTime CreateTime { get; set; }
-
-        /// <summary>
-        /// 最后更新人 
-        /// </summary>
-        public string UpdateBy { get; set; }
-
-        /// <summary>
-        /// 最后更新时间 
-        /// </summary>
-        public DateTime UpdateTime { get; set; }
-
-
     }
 }

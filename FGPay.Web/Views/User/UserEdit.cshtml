@@ -27,9 +27,9 @@
                     <td class="formValue">
                         <input id="txtRealName" name="txtRealName" autocomplete="off" type="text" class="form-control required" placeholder="请输入姓名" value="@Model.RealName" />
                     </td>
-                    <th class="formTitle">部门</th>
+                    <th class="formTitle">邮箱</th>
                     <td class="formValue">
-                        <select id="sltDepartmentId" name="sltDepartmentId" class="form-control required" value="@Model.DepartmentId"></select>
+                        <input id="txtEmail" name="txtEmail" type="email" class="form-control required email" autocomplete="off" value="@Model.Email" />
                     </td>
                 </tr>
                 <tr>
@@ -53,16 +53,6 @@
                     <th class="formTitle">生日</th>
                     <td class="formValue">
                         <input id="txtBirthday" type="text" class="form-control input-wdatepicker" autocomplete="off" onfocus="WdatePicker()" data-value="@Model.Birthday" />
-                    </td>
-                </tr>
-                <tr>
-                    <th class="formTitle">邮箱</th>
-                    <td class="formValue">
-                        <input id="txtEmail" name="txtEmail" type="email" class="form-control required email" autocomplete="off" value="@Model.Email" />
-                    </td>
-                    <th class="formTitle">入职日期</th>
-                    <td class="formValue">
-                        <input id="txtEntrydate" type="text" class="form-control input-wdatepicker" autocomplete="off" onfocus="WdatePicker()" data-value="@Model.Entrydate" />
                     </td>
                 </tr>
                 <tr>

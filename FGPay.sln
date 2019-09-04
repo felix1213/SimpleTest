@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.705
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29209.62
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Comm-Infrastructure", "Comm-Infrastructure", "{87984DFF-B4C7-465B-8135-F403DCDFC353}"
 EndProject
@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FGPay.Web", "FGPay.Web\FGPa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FGPay.Code", "FGPay.Code\FGPay.Code.csproj", "{4F6F4D13-0794-4D17-AB76-E56951C62626}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FGPay.Manager", "FGPay.Manager\FGPay.Manager.csproj", "{2AD05F73-5296-493B-B0FF-513E7D198255}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FGPay.Manager", "FGPay.Manager\FGPay.Manager.csproj", "{2AD05F73-5296-493B-B0FF-513E7D198255}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FGPay.Models", "FGPay.Models\FGPay.Models.csproj", "{C984B416-8268-48C5-8D2D-73BF01CF02C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{2AD05F73-5296-493B-B0FF-513E7D198255}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2AD05F73-5296-493B-B0FF-513E7D198255}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2AD05F73-5296-493B-B0FF-513E7D198255}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C984B416-8268-48C5-8D2D-73BF01CF02C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C984B416-8268-48C5-8D2D-73BF01CF02C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C984B416-8268-48C5-8D2D-73BF01CF02C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C984B416-8268-48C5-8D2D-73BF01CF02C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -2,23 +2,21 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace FGPay.Manager.Models
+namespace FGPay.Models
 {
     /// <summary>
-    /// 支付类型
+    /// 代理费率表
     /// </summary>
-    public enum PaymentType {AliPay=1,WechatPay=2,UnionPay=3 }
-    /// <summary>
-    /// 商户费率表
-    /// </summary>
-    public class MerchantRate
+    public class AgentRate
     {
-        public int MerchantRateID { get; set; }
+        public int ID { get; set; }
+        [Required]
+        [Display(Name = "支付类型")]
         public PaymentType PaymentType { get; set; }
 
+        [Required]
         [Display(Name = "费率")]
         [Column(TypeName = "numeric(4, 2)")]
         public Double Rate { get; set; }
@@ -26,6 +24,7 @@ namespace FGPay.Manager.Models
         /// <summary>
         /// 1正常，2禁用
         /// </summary>
+        [Required]
         [Display(Name = "状态")]
         [Column(TypeName = "tinyint")]
         public int State { get; set; } = 1;
@@ -37,7 +36,7 @@ namespace FGPay.Manager.Models
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd HH:mm:ss}", ApplyFormatInEditMode = true)]
         [Display(Name = "创建时间")]
-        public DateTime  CreateTime { get; set; }
+        public DateTime CreateTime { get; set; }
 
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd HH:mm:ss}", ApplyFormatInEditMode = true)]
@@ -45,10 +44,10 @@ namespace FGPay.Manager.Models
         public DateTime LastUpdateTime { get; set; }
 
         /// <summary>
-        /// 商户ID
+        /// 代理ID
         /// </summary>
-        public int MerchantID { get; set; }
+        public int AgentID { get; set; }
 
-        public Merchant Merchant { get; set; }
+        public Agent Agent { get; set; }
     }
 }

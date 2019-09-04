@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using FGPay.Manager.Models;
+using FGPay.Models;
 
 namespace FGPay.Manager
 {
@@ -18,12 +18,12 @@ namespace FGPay.Manager
                 return;
             }
             var agents = new Agent[] {
-                new Agent{ AaliPayRate=2.0, AgentFullName="代理007", AgentState=1, Balance=860, AgentUserID="AG"+DateTime.Now.ToString("YYMMdd")+"007",
-                 CreateTime=DateTime.Now, LastUpdateTime=DateTime.Now, Operator="admin", Remark="哈哈", UnionPayRate=2.5, WeChatPayRate=2.5},
-                     new Agent{ AaliPayRate=2.0, AgentFullName="代理005", AgentState=1, Balance=860, AgentUserID="AG"+DateTime.Now.ToString("YYMMdd")+"021",
-                 CreateTime=DateTime.Now, LastUpdateTime=DateTime.Now, Operator="admin", Remark="哈哈", UnionPayRate=2.5, WeChatPayRate=2.5},
-                          new Agent{ AaliPayRate=2.0, AgentFullName="代理002", AgentState=1, Balance=860, AgentUserID="AG"+DateTime.Now.ToString("YYMMdd")+"035",
-                 CreateTime=DateTime.Now, LastUpdateTime=DateTime.Now, Operator="admin", Remark="哈哈", UnionPayRate=2.5, WeChatPayRate=2.5}
+                new Agent{  AgentFullName="代理007", AgentState=1, Balance=860, AgentUserID="AG"+DateTime.Now.ToString("YYMMdd")+"007",
+                 CreateTime=DateTime.Now, LastUpdateTime=DateTime.Now, Operator="admin", Remark="哈哈"},
+                     new Agent{ AgentFullName="代理005", AgentState=1, Balance=860, AgentUserID="AG"+DateTime.Now.ToString("YYMMdd")+"021",
+                 CreateTime=DateTime.Now, LastUpdateTime=DateTime.Now, Operator="admin", Remark="哈哈", },
+                          new Agent{  AgentFullName="代理002", AgentState=1, Balance=860, AgentUserID="AG"+DateTime.Now.ToString("YYMMdd")+"035",
+                 CreateTime=DateTime.Now, LastUpdateTime=DateTime.Now, Operator="admin", Remark="哈哈"}
             };
 
             foreach (var item in agents)
@@ -50,12 +50,12 @@ namespace FGPay.Manager
             context.SaveChanges();
 
             var merchantRates = new MerchantRate[] {
-                new MerchantRate{ CreateTime=DateTime.Now, LastUpdateTime=DateTime.Now, MerchantID=merchants.Single(d=>d.MerchantFullName=="美高梅").MerchantID, Operator="admin", Rate=3.0, PaymentType=PaymentType.AliPay, State=1},
-                 new MerchantRate{ CreateTime=DateTime.Now, LastUpdateTime=DateTime.Now, MerchantID=merchants.Single(d=>d.MerchantFullName=="美高梅").MerchantID,Operator="admin", Rate=3.0, PaymentType=PaymentType.WechatPay, State=1},
-                  new MerchantRate{ CreateTime=DateTime.Now, LastUpdateTime=DateTime.Now, MerchantID=merchants.Single(d=>d.MerchantFullName=="美高梅").MerchantID,Operator="admin", Rate=3.0, PaymentType=PaymentType.UnionPay, State=1},
-                   new MerchantRate{ CreateTime=DateTime.Now, LastUpdateTime=DateTime.Now, MerchantID=merchants.Single(d=>d.MerchantFullName=="天域").MerchantID, Operator="admin", Rate=3.0, PaymentType=PaymentType.AliPay, State=1},
-                    new MerchantRate{ CreateTime=DateTime.Now, LastUpdateTime=DateTime.Now, MerchantID=merchants.Single(d=>d.MerchantFullName=="天域").MerchantID,Operator="admin", Rate=3.0, PaymentType=PaymentType.WechatPay, State=1},
-                     new MerchantRate{ CreateTime=DateTime.Now, LastUpdateTime=DateTime.Now, MerchantID=merchants.Single(d=>d.MerchantFullName=="天域").MerchantID, Operator="admin", Rate=3.0, PaymentType=PaymentType.UnionPay, State=1},
+                new MerchantRate{ CreateTime=DateTime.Now, LastUpdateTime=DateTime.Now, MerchantID=merchants.Single(d=>d.MerchantFullName=="美高梅").ID, Operator="admin", Rate=3.0, PaymentType=PaymentType.AliPay, State=1},
+                 new MerchantRate{ CreateTime=DateTime.Now, LastUpdateTime=DateTime.Now, MerchantID=merchants.Single(d=>d.MerchantFullName=="美高梅").ID,Operator="admin", Rate=3.0, PaymentType=PaymentType.WechatPay, State=1},
+                  new MerchantRate{ CreateTime=DateTime.Now, LastUpdateTime=DateTime.Now, MerchantID=merchants.Single(d=>d.MerchantFullName=="美高梅").ID,Operator="admin", Rate=3.0, PaymentType=PaymentType.UnionPay, State=1},
+                   new MerchantRate{ CreateTime=DateTime.Now, LastUpdateTime=DateTime.Now, MerchantID=merchants.Single(d=>d.MerchantFullName=="天域").ID, Operator="admin", Rate=3.0, PaymentType=PaymentType.AliPay, State=1},
+                    new MerchantRate{ CreateTime=DateTime.Now, LastUpdateTime=DateTime.Now, MerchantID=merchants.Single(d=>d.MerchantFullName=="天域").ID,Operator="admin", Rate=3.0, PaymentType=PaymentType.WechatPay, State=1},
+                     new MerchantRate{ CreateTime=DateTime.Now, LastUpdateTime=DateTime.Now, MerchantID=merchants.Single(d=>d.MerchantFullName=="天域").ID, Operator="admin", Rate=3.0, PaymentType=PaymentType.UnionPay, State=1},
             };
 
             foreach (var item in merchantRates)

@@ -1,4 +1,4 @@
-﻿@model FGPay.Manager.Models.Merchant
+﻿@model FGPay.Models.Merchant
 
 @{
     ViewData["Title"] = "Delete";
@@ -102,6 +102,18 @@
             @Html.DisplayFor(model => model.LastUpdateTime)
         </dd>
         <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LastLoginTime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LastLoginTime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ClientIP)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ClientIP)
+        </dd>
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.MerchantAgent)
         </dt>
         <dd class = "col-sm-10">
@@ -110,7 +122,7 @@
     </dl>
     
     <form asp-action="Delete">
-        <input type="hidden" asp-for="MerchantID" />
+        <input type="hidden" asp-for="ID" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">Back to List</a>
     </form>

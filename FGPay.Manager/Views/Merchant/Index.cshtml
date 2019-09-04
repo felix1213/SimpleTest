@@ -1,4 +1,4 @@
-﻿@model IEnumerable<FGPay.Manager.Models.Merchant>
+﻿@model IEnumerable<FGPay.Models.Merchant>
 
 @{
     ViewData["Title"] = "Index";
@@ -58,6 +58,12 @@
                 @Html.DisplayNameFor(model => model.LastUpdateTime)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.LastLoginTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientIP)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.MerchantAgent)
             </th>
             <th></th>
@@ -112,12 +118,18 @@
                 @Html.DisplayFor(modelItem => item.LastUpdateTime)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.LastLoginTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientIP)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.MerchantAgent.AgentID)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.MerchantID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.MerchantID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.MerchantID">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
             </td>
         </tr>
 }

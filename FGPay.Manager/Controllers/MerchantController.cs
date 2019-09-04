@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FGPay.Manager;
-using FGPay.Manager.Models;
+using FGPay.Models;
 
 namespace FGPay.Manager.Controllers
 {
@@ -36,7 +36,7 @@ namespace FGPay.Manager.Controllers
 
             var merchant = await _context.Merchants
                 .Include(m => m.MerchantAgent)
-                .FirstOrDefaultAsync(m => m.MerchantID == id);
+                .FirstOrDefaultAsync(m => m.ID == id);
             if (merchant == null)
             {
                 return NotFound();
@@ -57,7 +57,7 @@ namespace FGPay.Manager.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MerchantID,MerchantUserID,PassWord,MerchantFullName,PhoneNumber,MerchantState,SettleType,Role,PrepaidRate,WithdrawalRate,Balance,Md5key,Remark,Operator,CreateTime,LastUpdateTime,AgentID")] Merchant merchant)
+        public async Task<IActionResult> Create([Bind("ID,MerchantUserID,PassWord,MerchantFullName,PhoneNumber,MerchantState,SettleType,Role,PrepaidRate,WithdrawalRate,Balance,Md5key,Remark,Operator,CreateTime,LastUpdateTime,LastLoginTime,ClientIP,AgentID")] Merchant merchant)
         {
             if (ModelState.IsValid)
             {
@@ -91,9 +91,9 @@ namespace FGPay.Manager.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("MerchantID,MerchantUserID,PassWord,MerchantFullName,PhoneNumber,MerchantState,SettleType,Role,PrepaidRate,WithdrawalRate,Balance,Md5key,Remark,Operator,CreateTime,LastUpdateTime,AgentID")] Merchant merchant)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,MerchantUserID,PassWord,MerchantFullName,PhoneNumber,MerchantState,SettleType,Role,PrepaidRate,WithdrawalRate,Balance,Md5key,Remark,Operator,CreateTime,LastUpdateTime,LastLoginTime,ClientIP,AgentID")] Merchant merchant)
         {
-            if (id != merchant.MerchantID)
+            if (id != merchant.ID)
             {
                 return NotFound();
             }
@@ -107,7 +107,7 @@ namespace FGPay.Manager.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!MerchantExists(merchant.MerchantID))
+                    if (!MerchantExists(merchant.ID))
                     {
                         return NotFound();
                     }
@@ -132,7 +132,7 @@ namespace FGPay.Manager.Controllers
 
             var merchant = await _context.Merchants
                 .Include(m => m.MerchantAgent)
-                .FirstOrDefaultAsync(m => m.MerchantID == id);
+                .FirstOrDefaultAsync(m => m.ID == id);
             if (merchant == null)
             {
                 return NotFound();
@@ -154,7 +154,7 @@ namespace FGPay.Manager.Controllers
 
         private bool MerchantExists(int id)
         {
-            return _context.Merchants.Any(e => e.MerchantID == id);
+            return _context.Merchants.Any(e => e.ID == id);
         }
     }
 }

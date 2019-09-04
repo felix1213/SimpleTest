@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace FGPay.Manager.Models
+namespace FGPay.Models
 {
     /// <summary>
     /// 商户
     /// </summary>
     public class Merchant
     {
-        public int MerchantID { get; set; }
+        public int ID { get; set; }
         [Required]
         [Display(Name = "商户名")]
         [StringLength(20, MinimumLength = 3)]
@@ -22,6 +19,7 @@ namespace FGPay.Manager.Models
         [StringLength(50)]
         public string PassWord { get; set; }
 
+        [Required]
         [Display(Name = "商户名称")]
         [StringLength(50)]
         public string MerchantFullName { get; set; }
@@ -33,6 +31,7 @@ namespace FGPay.Manager.Models
         /// <summary>
         /// 1正常，2表示禁用
         /// </summary>
+        [Required]
         [Display(Name = "商户状态")]
         [Column(TypeName = "tinyint")]
         public int MerchantState { get; set; } = 1;
@@ -40,6 +39,7 @@ namespace FGPay.Manager.Models
         /// <summary>
         /// 1到账结算，2其它方式
         /// </summary>
+        [Required]
         [Display(Name = "结算方式")]
         [Column(TypeName = "tinyint")]
         public int SettleType { get; set; } = 1;
@@ -50,19 +50,20 @@ namespace FGPay.Manager.Models
         [Display(Name = "权限")]
         [Column(TypeName = "tinyint")]
         public int Role { get; set; } = 1;
-
+        [Required]
         [Display(Name = "预付费率")]
         [Column(TypeName = "numeric(4, 2)")]
         public Double PrepaidRate { get; set; }
-
+        [Required]
         [Display(Name = "取现费率")]
         [Column(TypeName = "numeric(4, 2)")]
         public Double WithdrawalRate { get; set; }
-
+        [Required]
         [Display(Name = "账户余额")]
         [Column(TypeName = "money")]
         public decimal Balance { get; set; }
 
+        [Required]
         [Display(Name = "密钥")]
         [StringLength(50)]
         public string Md5key { get; set; }
@@ -84,6 +85,15 @@ namespace FGPay.Manager.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd HH:mm:ss}", ApplyFormatInEditMode = true)]
         [Display(Name = "修改时间")]
         public DateTime LastUpdateTime { get; set; }
+
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd HH:mm:ss}", ApplyFormatInEditMode = true)]
+        [Display(Name = "登录时间")]
+        public DateTime LastLoginTime { get; set; }
+
+        [StringLength(30)]
+        [Display(Name = "IP")]
+        public string ClientIP { get; set; }
 
         [Display(Name = "代理")]
         public int? AgentID { get; set; }

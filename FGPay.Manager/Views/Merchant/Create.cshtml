@@ -1,4 +1,4 @@
-﻿@model FGPay.Manager.Models.Merchant
+﻿@model FGPay.Models.Merchant
 
 @{
     ViewData["Title"] = "Create";
@@ -86,6 +86,16 @@
                 <label asp-for="LastUpdateTime" class="control-label"></label>
                 <input asp-for="LastUpdateTime" class="form-control" />
                 <span asp-validation-for="LastUpdateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastLoginTime" class="control-label"></label>
+                <input asp-for="LastLoginTime" class="form-control" />
+                <span asp-validation-for="LastLoginTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClientIP" class="control-label"></label>
+                <input asp-for="ClientIP" class="form-control" />
+                <span asp-validation-for="ClientIP" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="AgentID" class="control-label"></label>

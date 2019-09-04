@@ -17,4 +17,9 @@
     <Folder Include="Data\" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <ProjectReference Include="..\FGPay.Models\FGPay.Models.csproj" />
+  </ItemGroup>
+
 </Project>

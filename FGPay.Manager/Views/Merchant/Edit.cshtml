@@ -1,4 +1,4 @@
-﻿@model FGPay.Manager.Models.Merchant
+﻿@model FGPay.Models.Merchant
 
 @{
     ViewData["Title"] = "Edit";
@@ -12,7 +12,7 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="MerchantID" />
+            <input type="hidden" asp-for="ID" />
             <div class="form-group">
                 <label asp-for="MerchantUserID" class="control-label"></label>
                 <input asp-for="MerchantUserID" class="form-control" />
@@ -87,6 +87,16 @@
                 <label asp-for="LastUpdateTime" class="control-label"></label>
                 <input asp-for="LastUpdateTime" class="form-control" />
                 <span asp-validation-for="LastUpdateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastLoginTime" class="control-label"></label>
+                <input asp-for="LastLoginTime" class="form-control" />
+                <span asp-validation-for="LastLoginTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClientIP" class="control-label"></label>
+                <input asp-for="ClientIP" class="form-control" />
+                <span asp-validation-for="ClientIP" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="AgentID" class="control-label"></label>

@@ -6,6 +6,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="Views\Home\Default.cshtml" />
+    <None Include="Views\Home\Index.cshtml" />
+    <None Include="Views\Login\Index.cshtml" />
+    <None Include="Views\Shared\_Form.cshtml" />
+    <None Include="Views\Shared\_Index.cshtml" />
+    <None Include="Views\Shared\_LayoutIndex.cshtml" />
+    <None Include="Views\User\Index.cshtml" />
+    <None Include="Views\User\UserEdit.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
@@ -14,6 +25,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FGPay.Code\FGPay.Code.csproj" />
+    <ProjectReference Include="..\FGPay.DAL\FGPay.DAL.csproj" />
     <ProjectReference Include="..\FGPay.Domain\FGPay.Domain.csproj" />
   </ItemGroup>
 

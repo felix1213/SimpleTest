@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29209.62
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Comm-Infrastructure", "Comm-Infrastructure", "{87984DFF-B4C7-465B-8135-F403DCDFC353}"
 EndProject
@@ -15,7 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FGPay.Code", "FGPay.Code\FG
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FGPay.Manager", "FGPay.Manager\FGPay.Manager.csproj", "{2AD05F73-5296-493B-B0FF-513E7D198255}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FGPay.Models", "FGPay.Models\FGPay.Models.csproj", "{C984B416-8268-48C5-8D2D-73BF01CF02C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FGPay.Models", "FGPay.Models\FGPay.Models.csproj", "{C984B416-8268-48C5-8D2D-73BF01CF02C3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FGPay.Domain", "FGPay.Domain\FGPay.Domain.csproj", "{330C35D5-C72E-4F87-B44B-CB5406B55DB7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FGPay.DAL", "FGPay.DAL\FGPay.DAL.csproj", "{E027A28B-DC8A-422A-A941-AF9EA32B311D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{C984B416-8268-48C5-8D2D-73BF01CF02C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C984B416-8268-48C5-8D2D-73BF01CF02C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C984B416-8268-48C5-8D2D-73BF01CF02C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{330C35D5-C72E-4F87-B44B-CB5406B55DB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{330C35D5-C72E-4F87-B44B-CB5406B55DB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{330C35D5-C72E-4F87-B44B-CB5406B55DB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{330C35D5-C72E-4F87-B44B-CB5406B55DB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E027A28B-DC8A-422A-A941-AF9EA32B311D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E027A28B-DC8A-422A-A941-AF9EA32B311D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E027A28B-DC8A-422A-A941-AF9EA32B311D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E027A28B-DC8A-422A-A941-AF9EA32B311D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -47,6 +59,8 @@ Global
 		{98E9F316-3B6C-40E4-8B0A-5A8199585C15} = {D5B1D738-8C45-4A9C-9F96-7DBB814CD525}
 		{4F6F4D13-0794-4D17-AB76-E56951C62626} = {87984DFF-B4C7-465B-8135-F403DCDFC353}
 		{2AD05F73-5296-493B-B0FF-513E7D198255} = {D5B1D738-8C45-4A9C-9F96-7DBB814CD525}
+		{330C35D5-C72E-4F87-B44B-CB5406B55DB7} = {6DB82855-ECB6-4E19-82E9-3359C6150AA2}
+		{E027A28B-DC8A-422A-A941-AF9EA32B311D} = {6DB82855-ECB6-4E19-82E9-3359C6150AA2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {38321A2D-0AB8-40FD-94FD-8DF9152B3617}

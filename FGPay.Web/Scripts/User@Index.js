@@ -1,5 +1,5 @@
 ﻿$(function () {
-    gridList();
+    //gridList();
 })
 function gridList() {
     var $gridList = $("#gridList");
@@ -13,13 +13,17 @@ function gridList() {
             { label: "电话", name: 'MobilePhone', width: 80, align: 'left' },
             { label: 'Email', name: 'Email', width: 140, align: 'left' },
             {
-                label: '群组', name: 'RoleId', width: 80, align: 'left'
-                ,formatter: function (cellvalue, options, rowObject) {
+                label: PageResx.col_role, name: 'RoleId', width: 80, align: 'left',
+                formatter: function (cellvalue, options, rowObject) {
                     return top.clients.groups[cellvalue] == null ? "" : top.clients.groups[cellvalue];
                 }
             },
             {
-                label: '是否启用', name: "IsAble", width: 80, align: "left",
+                label: PageResx.col_entrydate, name: 'Entrydate', width: 80, align: 'left',
+                formatter: "date", formatoptions: { srcformat: 'Y-m-d', newformat: 'Y-m-d' }
+            },
+            {
+                label: PageResx.col_isAble, name: "IsAble", width: 80, align: "left",
                 formatter: function (cellvalue, options, rowObject) {
                     if (cellvalue == true) {
                         return '<span class=\"label label-success\">启用</span>';
@@ -58,7 +62,7 @@ function btn_edit() {
     var keyValue = $("#gridList").jqGridRowValue().ID;
     $.modalOpen({
         id: "UserEdit",
-        title: "修改",
+        title: GlobalResx.edit,
         url: "/User/UserEdit?ID=" + keyValue,
         width: "700px",
         height: "510px",
@@ -78,7 +82,7 @@ function btn_delete() {
 }
 function btn_disabled() {
     var keyValue = $("#gridList").jqGridRowValue().ID;
-    $.modalConfirm("确定停用？", function (r) {
+    $.modalConfirm(PageResx.confirm4disable, function (r) {
         if (r) {
             $.submitForm({
                 url: "UpdateIsAble",
@@ -92,7 +96,7 @@ function btn_disabled() {
 }
 function btn_enabled() {
     var keyValue = $("#gridList").jqGridRowValue().ID;
-    $.modalConfirm("确定启用？", function (r) {
+    $.modalConfirm(PageResx.confirm4enable, function (r) {
         if (r) {
             $.submitForm({
                 url: "/User/UpdateIsAble",

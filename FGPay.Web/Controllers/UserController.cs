@@ -12,8 +12,6 @@ namespace FGPay.Web.Controllers
 {
     public class UserController : BaseController
     {
-        DAL.UserDAL userDAL = new DAL.UserDAL(); //测试用，尚未确定与DB交互的分层划分
-
         [PermissionFilter]
         public IActionResult Index()
         {
@@ -30,7 +28,8 @@ namespace FGPay.Web.Controllers
             }
             var data = new
             {
-                rows = userDAL.QryUsers<UserEntity>(pagination,pars),//DALUtility.UserCore.QryUsers<UserEntity>(pagination, pars), 
+
+                rows = "",//DALUtility.UserCore.QryUsers<UserEntity>(pagination, pars),  //实现返回IEnumerable<UserEntity>
                 total = pagination.total,
                 page = pagination.page,
                 records = pagination.records
@@ -89,8 +88,10 @@ namespace FGPay.Web.Controllers
             }
             paras["RealName"] = userEntity.RealName;
             paras["RoleId"] = userEntity.RoleId;
+            paras["DepartmentId"] = userEntity.DepartmentId;
             paras["MobilePhone"] = userEntity.MobilePhone;
             paras["Birthday"] = userEntity.Birthday;
+            paras["Entrydate"] = userEntity.Entrydate;
             paras["IsAble"] = userEntity.IsAble;
             paras["Description"] = userEntity.Description == null ? "" : userEntity.Description;
             // 改变部门时初始化职务

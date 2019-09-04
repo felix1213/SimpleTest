@@ -14,7 +14,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FGPay.Code\FGPay.Code.csproj" />
-    <ProjectReference Include="..\FGPay.DAL\FGPay.DAL.csproj" />
     <ProjectReference Include="..\FGPay.Domain\FGPay.Domain.csproj" />
   </ItemGroup>
 

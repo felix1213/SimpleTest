@@ -48,24 +48,28 @@ namespace FGPay.Manager.Controllers
         // GET: Merchant/Create
         public IActionResult Create()
         {
-            ViewData["AgentID"] = new SelectList(_context.Agents, "AgentID", "AgentID");
+            ViewData["AgentID"] = new SelectList(_context.Agents, "AgentID", "AgentUserID");
+            PopulateStatesDropDownList();
             return View();
         }
 
-        // POST: Merchant/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+      
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,MerchantUserID,PassWord,MerchantFullName,PhoneNumber,MerchantState,SettleType,Role,PrepaidRate,WithdrawalRate,Balance,Md5key,Remark,Operator,CreateTime,LastUpdateTime,LastLoginTime,ClientIP,AgentID")] Merchant merchant)
+        public async Task<IActionResult> Create([Bind("ID,MerchantUserID,PassWord,MerchantFullName,PhoneNumber,MerchantState,PrepaidRate,WithdrawalRate,Balance,Remark,AgentID")] Merchant merchant)
         {
+
             if (ModelState.IsValid)
             {
+                merchant.Md5key = Guid.NewGuid().ToString();
+                merchant.Operator = "admin";
+                merchant.CreateTime = DateTime.Now;
                 _context.Add(merchant);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AgentID"] = new SelectList(_context.Agents, "AgentID", "AgentID", merchant.AgentID);
+            //保存失败时
+            ViewData["AgentID"] = new SelectList(_context.Agents, "AgentID", "AgentUserID", merchant.AgentID);
             return View(merchant);
         }
 
@@ -82,7 +86,8 @@ namespace FGPay.Manager.Controllers
             {
                 return NotFound();
             }
-            ViewData["AgentID"] = new SelectList(_context.Agents, "AgentID", "AgentID", merchant.AgentID);
+            ViewData["AgentID"] = new SelectList(_context.Agents, "AgentID", "AgentUserID", merchant.AgentID);
+            PopulateStatesDropDownList(merchant.MerchantState);
             return View(merchant);
         }
 
@@ -91,7 +96,7 @@ namespace FGPay.Manager.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,MerchantUserID,PassWord,MerchantFullName,PhoneNumber,MerchantState,SettleType,Role,PrepaidRate,WithdrawalRate,Balance,Md5key,Remark,Operator,CreateTime,LastUpdateTime,LastLoginTime,ClientIP,AgentID")] Merchant merchant)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,MerchantUserID,PassWord,MerchantFullName,PhoneNumber,MerchantState,PrepaidRate,WithdrawalRate,Balance,Md5key,Remark,AgentID")] Merchant merchant)
         {
             if (id != merchant.ID)
             {
@@ -102,7 +107,20 @@ namespace FGPay.Manager.Controllers
             {
                 try
                 {
-                    _context.Update(merchant);
+                    //设置 需要更新的列
+                    _context.Attach(merchant);
+                    _context.Entry(merchant).Property(d => d.PassWord).IsModified = true;
+                    _context.Entry(merchant).Property(d => d.MerchantFullName).IsModified = true;
+                    _context.Entry(merchant).Property(d => d.PhoneNumber).IsModified = true;
+                    _context.Entry(merchant).Property(d => d.MerchantState).IsModified = true;
+                    _context.Entry(merchant).Property(d => d.PrepaidRate).IsModified = true;
+                    _context.Entry(merchant).Property(d => d.WithdrawalRate).IsModified = true;
+                    _context.Entry(merchant).Property(d => d.Balance).IsModified = true;
+                    _context.Entry(merchant).Property(d => d.Md5key).IsModified = true;
+                    _context.Entry(merchant).Property(d => d.Remark).IsModified = true;
+                    _context.Entry(merchant).Property(d => d.AgentID).IsModified = true;
+                    _context.Entry(merchant).Property(d => d.LastUpdateTime).IsModified = true;
+                    _context.Entry(merchant).Property(d => d.Operator).IsModified = true;
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -118,7 +136,8 @@ namespace FGPay.Manager.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AgentID"] = new SelectList(_context.Agents, "AgentID", "AgentID", merchant.AgentID);
+            ViewData["AgentID"] = new SelectList(_context.Agents, "AgentID", "AgentUserID", merchant.AgentID);
+            PopulateStatesDropDownList(merchant.MerchantState);
             return View(merchant);
         }
 
@@ -155,6 +174,17 @@ namespace FGPay.Manager.Controllers
         private bool MerchantExists(int id)
         {
             return _context.Merchants.Any(e => e.ID == id);
+        }
+        /// <summary>
+        /// 状态下拉列表数据
+        /// </summary>
+        /// <param name="selectValue"></param>
+        private void PopulateStatesDropDownList(object selectValue = null)
+        {
+            var list = new List<object>();
+            list.Add(new { Value = 1, Text = "正常" });
+            list.Add(new { Value = 2, Text = "禁用" });
+            ViewBag.State = new SelectList(list, "Value", "Text", selectValue);
         }
     }
 }

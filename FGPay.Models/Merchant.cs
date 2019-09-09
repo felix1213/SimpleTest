@@ -63,7 +63,6 @@ namespace FGPay.Models
         [Column(TypeName = "money")]
         public decimal Balance { get; set; }
 
-        [Required]
         [Display(Name = "密钥")]
         [StringLength(50)]
         public string Md5key { get; set; }
@@ -79,12 +78,12 @@ namespace FGPay.Models
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd HH:mm:ss}", ApplyFormatInEditMode = true)]
         [Display(Name = "创建时间")]
-        public DateTime CreateTime { get; set; }
+        public DateTime CreateTime { get; set; } = DateTime.Now;
 
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd HH:mm:ss}", ApplyFormatInEditMode = true)]
         [Display(Name = "修改时间")]
-        public DateTime LastUpdateTime { get; set; }
+        public DateTime LastUpdateTime { get; set; } = DateTime.Now;
 
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd HH:mm:ss}", ApplyFormatInEditMode = true)]

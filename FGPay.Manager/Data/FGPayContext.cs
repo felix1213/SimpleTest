@@ -15,11 +15,11 @@ namespace FGPay.Manager {
         public DbSet<Agent> Agents { get; set; }
         public DbSet<MerchantRate> MerchantRates { get; set; }
         public DbSet<AgentCreditLog> AgentCreditLogs { get; set; }
-        public DbSet<AgentOrder> AgentOrders { get; set; }
+        public DbSet<AgentWdOrder> AgentWdOrders { get; set; }
         public DbSet<AgentRate> AgentRates { get; set; }
         public DbSet<BankAccount> BankAccounts { get; set; }
         public DbSet<MerchantCreditLog> MerchantCreditLogs { get; set; }
-        public DbSet<MerchantOrder> MerchantOrders { get; set; }
+        public DbSet<MerchantWdOrder> MerchantWdOrders { get; set; }
         public DbSet<PaymentChannel> PaymentChannels { get; set; }
         public DbSet<QRCode> QRCodes { get; set; }
         public DbSet<ReceiptOrder> ReceiptOrders { get; set; }
@@ -27,7 +27,7 @@ namespace FGPay.Manager {
         public DbSet<RepAccountCredit> RepAccountCredits { get; set; }
         public DbSet<RepAccountDepositOrder> RepAccountDepositOrders { get; set; }
         public DbSet<RepAccountLog> RepAccountLogs { get; set; }
-        public DbSet<RepAccountWithdrawalOrder> RepAccountWithdrawalOrders { get; set; }
+        public DbSet<RepAccountWdOrder> RepAccountWdOrders { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -35,11 +35,11 @@ namespace FGPay.Manager {
             modelBuilder.Entity<Agent>().ToTable("Agent");
             modelBuilder.Entity<MerchantRate>().ToTable("MerchantRate");
             modelBuilder.Entity<AgentCreditLog>().ToTable("AgentCreditLog");
-            modelBuilder.Entity<AgentOrder>().ToTable("AgentOrder");
+            modelBuilder.Entity<AgentWdOrder>().ToTable("AgentOrder");
             modelBuilder.Entity<AgentRate>().ToTable("AgentRate");
             modelBuilder.Entity<BankAccount>().ToTable("BankAccount");
             modelBuilder.Entity<MerchantCreditLog>().ToTable("MerchantCreditLog");
-            modelBuilder.Entity<MerchantOrder>().ToTable("MerchantOrder");
+            modelBuilder.Entity<MerchantWdOrder>().ToTable("MerchantOrder");
             modelBuilder.Entity<PaymentChannel>().ToTable("PaymentChannel");
             modelBuilder.Entity<QRCode>().ToTable("QRCode");
             modelBuilder.Entity<ReceiptOrder>().ToTable("ReceiptOrder");
@@ -47,7 +47,7 @@ namespace FGPay.Manager {
             modelBuilder.Entity<RepAccountCredit>().ToTable("RepAccountCredit");
             modelBuilder.Entity<RepAccountDepositOrder>().ToTable("RepAccountDepositOrder");
             modelBuilder.Entity<RepAccountLog>().ToTable("RepAccountLog");
-            modelBuilder.Entity<RepAccountWithdrawalOrder>().ToTable("RepAccountWithdrawalOrder");
+            modelBuilder.Entity<RepAccountWdOrder>().ToTable("RepAccountWithdrawalOrder");
 
             //不启用MerchantRate表对Merchant的级联删除
             modelBuilder.Entity<MerchantRate>()

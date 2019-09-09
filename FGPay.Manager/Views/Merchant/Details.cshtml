@@ -1,10 +1,9 @@
 ﻿@model FGPay.Models.Merchant
 
 @{
-    ViewData["Title"] = "Details";
+       ViewData["Title"] = "商户信息-详情";
+        ViewData["Page"] = "Merchant";
 }
-
-<h1>Details</h1>
 
 <div>
     <h4>Merchant</h4>
@@ -116,7 +115,7 @@
             @Html.DisplayNameFor(model => model.MerchantAgent)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MerchantAgent.AgentID)
+            @Html.DisplayFor(model => model.MerchantAgent.AgentUserID)
         </dd>
     </dl>
 </div>

@@ -1,12 +1,9 @@
 ﻿@model FGPay.Models.Merchant
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "商户信息-修改";
+    ViewData["Page"] = "Merchant";
 }
-
-<h1>Edit</h1>
-
-<h4>Merchant</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -15,7 +12,7 @@
             <input type="hidden" asp-for="ID" />
             <div class="form-group">
                 <label asp-for="MerchantUserID" class="control-label"></label>
-                <input asp-for="MerchantUserID" class="form-control" />
+                <input asp-for="MerchantUserID" class="form-control" readonly />
                 <span asp-validation-for="MerchantUserID" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -35,18 +32,8 @@
             </div>
             <div class="form-group">
                 <label asp-for="MerchantState" class="control-label"></label>
-                <input asp-for="MerchantState" class="form-control" />
+                <select asp-for="MerchantState" class="form-control" asp-items="ViewBag.State"></select>
                 <span asp-validation-for="MerchantState" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SettleType" class="control-label"></label>
-                <input asp-for="SettleType" class="form-control" />
-                <span asp-validation-for="SettleType" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Role" class="control-label"></label>
-                <input asp-for="Role" class="form-control" />
-                <span asp-validation-for="Role" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="PrepaidRate" class="control-label"></label>
@@ -74,44 +61,19 @@
                 <span asp-validation-for="Remark" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Operator" class="control-label"></label>
-                <input asp-for="Operator" class="form-control" />
-                <span asp-validation-for="Operator" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CreateTime" class="control-label"></label>
-                <input asp-for="CreateTime" class="form-control" />
-                <span asp-validation-for="CreateTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LastUpdateTime" class="control-label"></label>
-                <input asp-for="LastUpdateTime" class="form-control" />
-                <span asp-validation-for="LastUpdateTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LastLoginTime" class="control-label"></label>
-                <input asp-for="LastLoginTime" class="form-control" />
-                <span asp-validation-for="LastLoginTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ClientIP" class="control-label"></label>
-                <input asp-for="ClientIP" class="form-control" />
-                <span asp-validation-for="ClientIP" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="AgentID" class="control-label"></label>
                 <select asp-for="AgentID" class="form-control" asp-items="ViewBag.AgentID"></select>
                 <span asp-validation-for="AgentID" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="保存" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">返回列表</a>
 </div>
 
 @section Scripts {

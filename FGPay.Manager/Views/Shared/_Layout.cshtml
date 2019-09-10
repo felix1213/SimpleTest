@@ -34,7 +34,7 @@
                     </li>
                     <li class="sidebar-item">
                         <a href="#dashboards" data-toggle="collapse" class="sidebar-link collapsed">
-                            <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">代理管理</span>
+                            <i class="align-middle" data-feather="users"></i> <span class="align-middle">代理管理</span>
                         </a>
                         <ul id="dashboards" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
                             <li class="sidebar-item  @(ViewData["Page"]?.ToString() =="Agent"? "active":"")"><a class="sidebar-link" asp-controller="Agent" asp-action="Index">代理信息</a></li>
@@ -68,13 +68,13 @@
                     </li>
                     <li class="sidebar-item">
                         <a href="#pages" data-toggle="collapse" class="sidebar-link collapsed">
-                            <i class="align-middle" data-feather="layout"></i> <span class="align-middle">设置</span>
+                            <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">设置</span>
                         </a>
                         <ul id="pages" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-                            <li class="sidebar-item  @(ViewData["Page"]?.ToString() =="BankAccount"? "active":"")"><a class="sidebar-link"  asp-controller="Merchant" asp-action="Index">银行账户</a></li>
-                            <li class="sidebar-item  @(ViewData["Page"]?.ToString() =="PaymentChannel"? "active":"")"><a class="sidebar-link"  asp-controller="Merchant" asp-action="Index">支付通道</a></li>
-                            <li class="sidebar-item  @(ViewData["Page"]?.ToString() =="QRCode"? "active":"")"><a class="sidebar-link"  asp-controller="Merchant" asp-action="Index">二维码信息</a></li>
-
+                            <li class="sidebar-item  @(ViewData["Page"]?.ToString() =="BankAccount"? "active":"")"><a class="sidebar-link" asp-controller="Merchant" asp-action="Index">银行账户</a></li>
+                            <li class="sidebar-item  @(ViewData["Page"]?.ToString() =="PaymentChannel"? "active":"")"><a class="sidebar-link" asp-controller="Merchant" asp-action="Index">支付通道</a></li>
+                            <li class="sidebar-item  @(ViewData["Page"]?.ToString() =="QRCode"? "active":"")"><a class="sidebar-link" asp-controller="Merchant" asp-action="Index">二维码信息</a></li>
+                            <li class="sidebar-item  @(ViewData["Page"]?.ToString() =="SystemMenus"? "active":"")"><a class="sidebar-link" asp-controller="SystemMenus" asp-action="Index">选单</a></li>
                         </ul>
                     </li>
                     <li class="sidebar-header">
@@ -88,7 +88,7 @@
                             <li class="sidebar-item"><a class="sidebar-link" href="ui-alerts.html">报表1</a></li>
                             <li class="sidebar-item"><a class="sidebar-link" href="ui-buttons.html">报表1</a></li>
                             <li class="sidebar-item"><a class="sidebar-link" href="ui-cards.html">报表1</a></li>
-                            <li class="sidebar-item"><a class="sidebar-link" href="ui-general.html">报表1</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" target="_blank" href="ui-general.html">报表1</a></li>
                             <li class="sidebar-item"><a class="sidebar-link" href="ui-grid.html">报表1</a></li>
                         </ul>
                     </li>

@@ -29,6 +29,8 @@ namespace FGPay.Manager {
         public DbSet<RepAccountLog> RepAccountLogs { get; set; }
         public DbSet<RepAccountWdOrder> RepAccountWdOrders { get; set; }
 
+        public DbSet<SystemMenu> SystemMenu { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Merchant>().ToTable("Merchant");
@@ -48,6 +50,7 @@ namespace FGPay.Manager {
             modelBuilder.Entity<RepAccountDepositOrder>().ToTable("RepAccountDepositOrder");
             modelBuilder.Entity<RepAccountLog>().ToTable("RepAccountLog");
             modelBuilder.Entity<RepAccountWdOrder>().ToTable("RepAccountWithdrawalOrder");
+            modelBuilder.Entity<SystemMenu>().ToTable("SystemMenu");
 
             //不启用MerchantRate表对Merchant的级联删除
             modelBuilder.Entity<MerchantRate>()

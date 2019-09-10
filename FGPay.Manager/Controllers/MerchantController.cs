@@ -10,7 +10,7 @@ using FGPay.Models;
 
 namespace FGPay.Manager.Controllers
 {
-    public class MerchantController : Controller
+    public class MerchantController : BaseController
     {
         private readonly FGPayContext _context;
 
@@ -175,16 +175,6 @@ namespace FGPay.Manager.Controllers
         {
             return _context.Merchants.Any(e => e.ID == id);
         }
-        /// <summary>
-        /// 状态下拉列表数据
-        /// </summary>
-        /// <param name="selectValue"></param>
-        private void PopulateStatesDropDownList(object selectValue = null)
-        {
-            var list = new List<object>();
-            list.Add(new { Value = 1, Text = "正常" });
-            list.Add(new { Value = 2, Text = "禁用" });
-            ViewBag.State = new SelectList(list, "Value", "Text", selectValue);
-        }
+        
     }
 }

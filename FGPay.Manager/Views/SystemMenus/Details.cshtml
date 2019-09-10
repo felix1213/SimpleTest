@@ -1,0 +1,78 @@
+﻿@model FGPay.Models.SystemMenu
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>SystemMenu</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MenuTag)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MenuTag)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Parentid)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Parentid)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Icon)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Icon)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Controller)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Controller)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Action)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Action)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Target)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Target)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Href)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Href)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.State)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.State)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Sort)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Sort)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.MenuID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

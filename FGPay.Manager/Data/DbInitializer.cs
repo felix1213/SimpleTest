@@ -63,6 +63,53 @@ namespace FGPay.Manager
                 context.MerchantRates.Add(item);
             }
             context.SaveChanges();
+
+            var mainMenus = new SystemMenu[] {
+                new SystemMenu(){ MenuTag=1,Name="代理管理",Parentid=0,Icon="users",Controller="",Action="",State=1,Sort=10 },
+                new SystemMenu(){ MenuTag=1,Name="商户管理",Parentid=0,Icon="users",Controller="",Action="",State=1,Sort=9 },
+                new SystemMenu(){ MenuTag=1,Name="代收(码商)管理",Parentid=0,Icon="users",Controller="",Action="",State=1,Sort=8 },
+                new SystemMenu(){ MenuTag=1,Name="设置",Parentid=0,Icon="sliders",Controller="",Action="",State=1,Sort=7 },
+                new SystemMenu(){ MenuTag=1,Name="营收统计",Parentid=0,Icon="grid",Controller="",Action="",State=1,Sort=6 }
+            };
+
+            foreach (var item in mainMenus)
+            {
+                context.SystemMenu.Add(item);
+            }
+            context.SaveChanges();
+
+            var subMenus = new SystemMenu[] {
+                new SystemMenu(){ MenuTag=1,Name="代理信息",Parentid=1,Controller="Agent",Action="Index",State=1,Sort=10 },
+                new SystemMenu(){ MenuTag=1,Name="费率设置",Parentid=1,Controller="Agent",Action="Index",State=1,Sort=9 },
+                new SystemMenu(){ MenuTag=1,Name="取现订单",Parentid=1,Controller="Agent",Action="Index",State=1,Sort=8 },
+                new SystemMenu(){ MenuTag=1,Name="交易记录",Parentid=1,Controller="Agent",Action="Index",State=1,Sort=7 },
+                new SystemMenu(){ MenuTag=1,Name="商户信息",Parentid=2,Controller="Merchant",Action="Index",State=1,Sort=10 },
+                new SystemMenu(){ MenuTag=1,Name="费率设置",Parentid=2,Controller="Merchant",Action="Index",State=1,Sort=9 },
+                new SystemMenu(){ MenuTag=1,Name="订单信息",Parentid=2,Controller="Merchant",Action="Index",State=1,Sort=8 },
+                new SystemMenu(){ MenuTag=1,Name="取现订单",Parentid=2,Controller="Merchant",Action="Index",State=1,Sort=7 },
+                new SystemMenu(){ MenuTag=1,Name="交易记录",Parentid=2,Controller="Merchant",Action="Index",State=1,Sort=6 },
+                new SystemMenu(){ MenuTag=1,Name="代收信息",Parentid=3,Controller="Agent",Action="Index",State=1,Sort=10 },
+                new SystemMenu(){ MenuTag=1,Name="缴纳保证金订单",Parentid=3,Controller="Agent",Action="Index",State=1,Sort=9 },
+                new SystemMenu(){ MenuTag=1,Name="取现订单",Parentid=3,Controller="Agent",Action="Index",State=1,Sort=8 },
+                new SystemMenu(){ MenuTag=1,Name="操作记录",Parentid=3,Controller="Agent",Action="Index",State=1,Sort=7 },
+                new SystemMenu(){ MenuTag=1,Name="银行账户",Parentid=4,Controller="Merchant",Action="Index",State=1,Sort=10 },
+                new SystemMenu(){ MenuTag=1,Name="支付通道",Parentid=4,Controller="Merchant",Action="Index",State=1,Sort=9 },
+                new SystemMenu(){ MenuTag=1,Name="二维码信息",Parentid=4,Controller="Merchant",Action="Index",State=1,Sort=8 },
+                new SystemMenu(){ MenuTag=1,Name="选单管理",Parentid=4,Controller="SystemMenu",Action="Index",State=1,Sort=7 },
+                new SystemMenu(){ MenuTag=1,Name="群组管理",Parentid=4,Controller="Merchant",Action="Index",State=1,Sort=6 },
+                new SystemMenu(){ MenuTag=1,Name="后台用户管理",Parentid=4,Controller="Merchant",Action="Index",State=1,Sort=5 },
+                new SystemMenu(){ MenuTag=1,Name="报表1",Parentid=5,Controller="Merchant",Action="Index",State=1,Sort=5 },
+                new SystemMenu(){ MenuTag=1,Name="报表2",Parentid=5,Controller="Merchant",Action="Index",State=1,Sort=5 },
+                new SystemMenu(){ MenuTag=1,Name="报表3",Parentid=5,Controller="Merchant",Action="Index",State=1,Sort=5 },
+                new SystemMenu(){ MenuTag=1,Name="报表4",Parentid=5,Controller="Merchant",Action="Index",State=1,Sort=5 },
+                new SystemMenu(){ MenuTag=1,Name="外链",Parentid=5, Target="_blank",Href="http://www.qq.com",State=1,Sort=5 }
+            };
+
+            foreach (var item in subMenus)
+            {
+                context.SystemMenu.Add(item);
+            }
+            context.SaveChanges();
             #endregion
         }
     }

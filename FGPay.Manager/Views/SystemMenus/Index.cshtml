@@ -1,0 +1,123 @@
+﻿@model IEnumerable<FGPay.Models.SystemMenu>
+
+@{
+    ViewData["Title"] = "Index";
+    var mainMenus = Model.ToList().FindAll(x=>x.Parentid==0);
+    var subMenus = Model.ToList().FindAll(x => x.Parentid > 0);
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parentid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Icon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Controller)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Action)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Target)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Href)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.State)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sort)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var m in mainMenus)
+        {
+            <tr style="font-weight:bold">
+                <td>
+                    @Html.DisplayFor(modelItem => m.Name)
+                </td>
+                <td>
+                    
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => m.Icon)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => m.Controller)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => m.Action)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => m.Target)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => m.Href)
+                </td>
+                <td>
+                    @(m.State == 1 ? "正常" : "禁用")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => m.Sort)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@m.MenuID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@m.MenuID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@m.MenuID">Delete</a>
+                </td>
+            </tr>
+            foreach (var item in subMenus.FindAll(x => x.Parentid == m.MenuID))
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Model.Single(x => x.MenuID == item.Parentid).Name
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Icon)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Controller)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Action)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Target)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Href)
+                    </td>
+                    <td>
+                        @(item.State == 1 ? "正常" : "禁用")
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Sort)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.MenuID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.MenuID">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.MenuID">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

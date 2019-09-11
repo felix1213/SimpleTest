@@ -2,8 +2,8 @@
 
 @{
     ViewData["Title"] = "Index";
-    var mainMenus = Model.ToList().FindAll(x=>x.Parentid==0);
-    var subMenus = Model.ToList().FindAll(x => x.Parentid > 0);
+    var mainMenus = Model.Where(x=>x.Parentid==0);
+    var subMenus = Model.Where(x => x.Parentid > 0);
 }
 
 <h1>Index</h1>
@@ -81,7 +81,7 @@
                     <a asp-action="Delete" asp-route-id="@m.MenuID">Delete</a>
                 </td>
             </tr>
-            foreach (var item in subMenus.FindAll(x => x.Parentid == m.MenuID))
+            foreach (var item in subMenus.Where(x => x.Parentid == m.MenuID))
             {
                 <tr>
                     <td>

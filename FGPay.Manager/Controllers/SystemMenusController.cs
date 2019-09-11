@@ -164,5 +164,14 @@ namespace FGPay.Manager.Controllers
         {
             return _context.SystemMenu.Any(e => e.MenuID == id);
         }
+
+        public IActionResult Menu(string pg)
+        {
+            ViewData["Page"] = pg;
+            //调整：先从缓存中读取
+            var currentMenus = _context.SystemMenu.Where(x => x.MenuTag == 1 && x.State == 1).OrderByDescending(x => x.Sort).AsEnumerable();
+           
+            return PartialView("_Menu", currentMenus);
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿
+﻿@using FGPay.Code.Extend
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,73 +27,7 @@
                     <i class="align-middle" data-feather="box"></i>
                     <span class="align-middle">FGPay  管理平台</span>
                 </a>
-
-                <ul class="sidebar-nav">
-                    <li class="sidebar-header">
-                        综合管理
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="#dashboards" data-toggle="collapse" class="sidebar-link collapsed">
-                            <i class="align-middle" data-feather="users"></i> <span class="align-middle">代理管理</span>
-                        </a>
-                        <ul id="dashboards" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-                            <li class="sidebar-item  @(ViewData["Page"]?.ToString() =="Agent"? "active":"")"><a class="sidebar-link" asp-controller="Agent" asp-action="Index">代理信息</a></li>
-                            <li class="sidebar-item  @(ViewData["Page"]?.ToString() =="AgentRate"? "active":"")"><a class="sidebar-link"  asp-controller="Merchant" asp-action="Index">费率设置</a></li>
-                            <li class="sidebar-item  @(ViewData["Page"]?.ToString() =="AgentWdOrder"? "active":"")"><a class="sidebar-link"  asp-controller="Merchant" asp-action="Index">取现订单</a></li>
-                            <li class="sidebar-item  @(ViewData["Page"]?.ToString() =="AgentCreditLog"? "active":"")"><a class="sidebar-link"  asp-controller="Merchant" asp-action="Index">交易记录</a></li>
-                        </ul>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="#pages" data-toggle="collapse" class="sidebar-link collapsed">
-                            <i class="align-middle" data-feather="layout"></i> <span class="align-middle">商户管理</span>
-                        </a>
-                        <ul id="pages" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-                            <li class="sidebar-item  @(ViewData["Page"]?.ToString() =="Merchant"? "active":"")"><a class="sidebar-link"  asp-controller="Merchant" asp-action="Index">商户信息</a></li>
-                            <li class="sidebar-item  @(ViewData["Page"]?.ToString() =="MerchantRate"? "active":"")"><a class="sidebar-link"  asp-controller="Merchant" asp-action="Index">费率设置</a></li>
-                            <li class="sidebar-item  @(ViewData["Page"]?.ToString() =="ReceiptOrder"? "active":"")"><a class="sidebar-link"  asp-controller="Merchant" asp-action="Index">订单信息</a></li>
-                            <li class="sidebar-item  @(ViewData["Page"]?.ToString() =="MerchantWdOrder"? "active":"")"><a class="sidebar-link"  asp-controller="Merchant" asp-action="Index">取现订单</a></li>
-                            <li class="sidebar-item  @(ViewData["Page"]?.ToString() =="MerchantCreditLog"? "active":"")"><a class="sidebar-link"  asp-controller="Merchant" asp-action="Index">交易记录 </a></li>
-                        </ul>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="#auth" data-toggle="collapse" class="sidebar-link collapsed">
-                            <i class="align-middle" data-feather="users"></i> <span class="align-middle">代收(码商)管理</span>
-                        </a>
-                        <ul id="auth" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-                            <li class="sidebar-item  @(ViewData["Page"]?.ToString() =="RepAccount"? "active":"")"><a class="sidebar-link"  asp-controller="Merchant" asp-action="Index">代收信息</a></li>
-                            <li class="sidebar-item  @(ViewData["Page"]?.ToString() =="RepAccountDepositOrder"? "active":"")"><a class="sidebar-link"  asp-controller="Merchant" asp-action="Index">缴纳保证金订单</a></li>
-                            <li class="sidebar-item  @(ViewData["Page"]?.ToString() =="RepAccountWdOrder"? "active":"")"><a class="sidebar-link"  asp-controller="Merchant" asp-action="Index">取现订单</a></li>
-                            <li class="sidebar-item  @(ViewData["Page"]?.ToString() =="RepAccountLog"? "active":"")"><a class="sidebar-link"  asp-controller="Merchant" asp-action="Index">操作记录</a></li>
-                        </ul>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="#pages" data-toggle="collapse" class="sidebar-link collapsed">
-                            <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">设置</span>
-                        </a>
-                        <ul id="pages" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-                            <li class="sidebar-item  @(ViewData["Page"]?.ToString() =="BankAccount"? "active":"")"><a class="sidebar-link" asp-controller="Merchant" asp-action="Index">银行账户</a></li>
-                            <li class="sidebar-item  @(ViewData["Page"]?.ToString() =="PaymentChannel"? "active":"")"><a class="sidebar-link" asp-controller="Merchant" asp-action="Index">支付通道</a></li>
-                            <li class="sidebar-item  @(ViewData["Page"]?.ToString() =="QRCode"? "active":"")"><a class="sidebar-link" asp-controller="Merchant" asp-action="Index">二维码信息</a></li>
-                            <li class="sidebar-item  @(ViewData["Page"]?.ToString() =="SystemMenus"? "active":"")"><a class="sidebar-link" asp-controller="SystemMenus" asp-action="Index">选单</a></li>
-                        </ul>
-                    </li>
-                    <li class="sidebar-header">
-                        统计分析
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="#ui" data-toggle="collapse" class="sidebar-link collapsed">
-                            <i class="align-middle" data-feather="grid"></i> <span class="align-middle">营收统计</span>
-                        </a>
-                        <ul id="ui" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-                            <li class="sidebar-item"><a class="sidebar-link" href="ui-alerts.html">报表1</a></li>
-                            <li class="sidebar-item"><a class="sidebar-link" href="ui-buttons.html">报表1</a></li>
-                            <li class="sidebar-item"><a class="sidebar-link" href="ui-cards.html">报表1</a></li>
-                            <li class="sidebar-item"><a class="sidebar-link" target="_blank" href="ui-general.html">报表1</a></li>
-                            <li class="sidebar-item"><a class="sidebar-link" href="ui-grid.html">报表1</a></li>
-                        </ul>
-                    </li>
-                </ul>
-
+                @Html.Action("Menu", "SystemMenus", new { pg= ViewContext.RouteData.Values["controller"] } )
                 <div class="sidebar-bottom d-none d-lg-block">
                     <div class="media">
                         <img class="rounded-circle mr-3" src="/img/avatars/avatar.jpg" alt="Chris Wood" width="40" height="40">
@@ -300,15 +234,15 @@
             <main class="content">
                 <div class="container-fluid p-0">
                     <h1 class="h3 mb-3">@ViewData["Title"]</h1>
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="card">
-                                        <div class="card-body"> @RenderBody()</div>
-                                    </div>
-                                </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body"> @RenderBody()</div>
                             </div>
+                        </div>
                     </div>
-</main>
+                </div>
+            </main>
 
             <footer class="footer">
                 <div class="container-fluid">
@@ -339,7 +273,6 @@
             </footer>
         </div>
     </div>
-
     <script src="~/js/app.js"></script>
     @RenderSection("scripts", required: false)
 </body>

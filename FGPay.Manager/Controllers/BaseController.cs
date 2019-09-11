@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
@@ -9,6 +11,13 @@ namespace FGPay.Manager.Controllers
 {
     public class BaseController : Controller
     {
+        protected void SetSession(string k, string v)
+        {
+            HttpContext.Session.SetString(k, v);
+        }
+
+        protected string GetSession(string k) => HttpContext.Session.GetString(k);
+
         /// <summary>
         /// 状态下拉列表数据
         /// </summary>

@@ -1,0 +1,30 @@
+﻿@model IEnumerable<FGPay.Models.SystemMenu>
+@{
+    var mainMenus = Model.Where(x => x.Parentid == 0);
+    var subMenus = Model.Where(x => x.Parentid > 0);
+}
+<ul class="sidebar-nav">
+    @foreach (var m in mainMenus)
+    {
+        <li class="sidebar-item">
+            <a href="@("#" + "li_" + m.MenuID)" data-toggle="collapse" class="sidebar-link collapsed">
+                <i class="align-middle" data-feather="@m.Icon"></i> <span class="align-middle">@m.Name</span>
+            </a>
+            <ul id="@("li_" + m.MenuID)" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+                @foreach (var s in subMenus.Where(x=>x.Parentid==m.MenuID))
+                {
+                <li id="s_@s.Controller" class="sidebar-item  @(ViewData["Page"]?.ToString() ==s.Controller? "active":"")">
+                    @if (string.IsNullOrEmpty(s.Href))
+                    {
+                        <a class="sidebar-link" asp-controller="@s.Controller" asp-action="@s.Action">@s.Name</a>
+                    }
+                    else
+                    {
+                        <a class="sidebar-link" href="@s.Href" target="_blank">@s.Name</a>
+                    }
+                </li>
+                }
+            </ul>
+        </li>
+    }
+</ul>
